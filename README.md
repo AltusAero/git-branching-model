@@ -67,3 +67,19 @@ Once support has been dropped, the branch should not be updated anymore and is k
 ## Goals
   - make contributing and maintaining projects as simple as possible, especially for those new to `git`.
   - should be 'welcoming' to innovation so that people can feel comfortable (at any experience level) to make a contribution of any size.
+
+
+## Notes
+Maintainers may find `git branch --set-upstream-to` handy. See the following example:
+```sh
+# Set local staging to track origin's staging
+git checkout staging
+git branch --set-upstream-to origin/staging
+
+# Set local master to track origin's master
+git checkout master
+git branch --set-upstream-to origin/master
+
+# check which local branch is watching which origin branch
+git branch -vv
+```
