@@ -1,12 +1,8 @@
 # Git Branching Model
 
-This guide is designed for
+We have 5 types of branches: [**Master**](#master), [**Staging**](#staging), [**Feature**](#feature), [**Hotfix**](#hotfix), and [**LTS**](#lts).
 
-We have 5 types of branches: [**Master**](#master), [**Staging**](#staging), [**Feature**](#feature), [**Hotfix**](#hostfix), and [**LTS**](#lts)
-
-Contributors are welcome to make pull requests to [**Staging**](#staging), [**Feature**](#feature), [**Hotfix**](#hostfix), and [**LTS**](#lts).
-Contributors are welcome to make pull requests to create new [**Feature**](#feature), [**Hotfix**](#hostfix), and [**LTS**](#lts) branches.
-No code is required to create a pull request for a new [**Feature**](#feature) branch if it is a mere proposal.
+Contributors are welcome to make pull requests to [**Staging**](#staging), [**Feature**](#feature), [**Hotfix**](#hotfix), and [**LTS**](#lts). Contributors are welcome to make pull requests to create new [**Feature**](#feature), [**Hotfix**](#hotfix), and [**LTS**](#lts) branches. No code is required to create a pull request for a new [**Feature**](#feature) branch if it is a mere proposal.
 
 Maintainers manage the merging between branches and any releases that follow.
 
