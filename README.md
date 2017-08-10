@@ -57,9 +57,20 @@ A branch for any emergencies fixes, usually for security purposes. Once *stable*
 
 Name: `lts-MAJOR_VERSION.x`, where `MAJOR_VERSION` is the major version of the lts
 
-An optional branch for any LTS releases created from [**Master**](#master). LTS releases can be useful if the project requires long-term reliability of APIs for dependents.
+An optional branch for any LTS releases created from [**Master**](#master). LTS releases can be useful if the project requires long-term reliability of APIs for dependents. The information for an LTS.md branch can be found in **LTS.md** at the root of the repository.
 
-The code base may have some slight deviations from its original [**Master**](#master) counter-part to make new releases easier to deploy, such as special build/release scripts, along with the date for which this branch will no longer be supported in its **LTS.md** file.
+LTS branches may have unique configuration and scripts to simplify builds and releases. An example for an npm package:
+  ```json
+  "publishConfig": {
+    "tag": "1.x"
+  },
+  "scripts": {
+    "prepublishOnly": "node tools/special-build-for-lts-1.x.js"
+  }
+  ```
+  - In this example:
+    - `publishConfig.tag` allows you to run `npm publish` without worrying about accidentally overwriting the default distribution tag ('latest') upon publishing. Run `npm info npm dist-tags` to see a real-world example for how this can be useful.
+    - `scripts.prepublishOnly` useful for unique builds for an LTS branch - triggers on `npm publish`
 
 Once support has been dropped, the branch should not be updated anymore and is kept **only for archival purposes**.
 
