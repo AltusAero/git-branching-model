@@ -9,13 +9,17 @@ Maintainers manage the merging between branches and any releases that follow.
 
 ## Definitions & Terminology
 
-The term "**stable**" is used when all tests pass and the branch is deemed reliable in the sense of the project's scope (not on its dependencies or platform).
+### Stable
 
-"**LTS.md**" is a file in the root of a repository with a list of long-term support in a format that can be easily human & machine parsed, if the project has an LTS release. The project's **README.md** should link to this file, if it exists. The file should be in markdown table format with `LTS`, `Started`, `Expires`, and `Notes` columns. The `LTS` column should match the lts branch's name, minus the 'lts-' prefix and the `Started` and `Expires` columns should be in YYYY-MM-DD format. Example:
+The term "**stable**" is used when all tests pass and the branch is deemed reliable in the context of the project. This does not include the project's dependencies, including platform.
+
+### LTS.md
+
+"**LTS.md**" is a file in the root of a repository with a list of long-term support in a format that can be easily human & machine parsed, if the project has an LTS release. The project's **README.md** should link to this file, if it exists, for the convenience of visitors. The file should be in markdown table format with `LTS`, `Started`, `Expires`, and `Notes` columns. The `LTS` column should match the lts branch's name, minus the 'lts-' prefix and the `Started` and `Expires` columns should be in YYYY-MM-DD format. The dates coorespond with 00:00 (midnight) in UTC to avoid time/timezone ambiguity. Example:
 
 | LTS           | Started       | Expires    | Notes                                                      |
 | ------------- | ------------- | ---------- | ---------------------------------------------------------- |
-| 1.x           | 2017-08-01    | 2019-08-01 | The first LTS release                                      |
+| 1.x           | 2017-08-01    | 2019-08-01 | The first LTS release (the `lts-1.x` branch)               |
 | 2.x           | 2018-01-31    | 2020-01-31 | The second LTS release. This is an example for a [link](#) |
 
 
@@ -31,7 +35,7 @@ The public, default, go-to branch that we know and love. Git tags are generated 
 
 Name: `staging`
 
-The branch where future features and releases are prepared for master. While the branch is under constant development, this branch aims to be *stable* at all times (thus encourages quality commits and contributions). This branch must be *stable* before being merged onto master.
+The branch where future features and releases are prepared for master. While this branch is under constant development, it aims to be *stable* at all times (thus encourages quality commits and contributions). This branch must be *stable* before being merged onto master.
 
 This branch must also contain an up-to-date **LTS.md** file as well, if any LTS releases are available.
 
@@ -47,7 +51,7 @@ Once the new feature is ready to be implemented, the current [**Staging**](#stag
 
 Name: `hotfix-NAME` where `NAME` is an alias or title of the fix.
 
-A branch for any emergencies fixes, usually for security purposes. Once *stable*, this branch is merged directly onto [**Master**](#master), [**Staging**](#staging), and any active [**LTS**](#lts) (where fix is applicable) then **deleted**.
+A branch for any emergencies fixes, usually for security purposes. Once *stable*, this branch is merged directly onto [**Master**](#master), [**Staging**](#staging), and any active [**LTS**](#lts) (where fix is applicable) then **deleted**. Once merged onto [**Master**](#master) a new tag must be created.
 
 ### LTS
 
